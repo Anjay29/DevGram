@@ -19,23 +19,29 @@ let DeveloperScreen = () => {
   }, []);
 
   const getUser = async () => {
-    const { data } = await axios.get("http://localhost:8000/api/users/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    const { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/users/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
     setUser(data.user);
   };
 
   console.log(user.name);
 
   const fetchProfiles = async () => {
-    const { data } = await axios.get("http://localhost:8000/api/profiles/all", {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/profiles/all",
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
     setProfiles(data.profiles);
     setLoading(false);
     // console.log(data.profiles)
@@ -50,7 +56,7 @@ let DeveloperScreen = () => {
 
   let clickFollowUser = async (profileId) => {
     const { data } = await axios.put(
-      `http://localhost:8000/api/profiles/follow/${profileId}`,
+      `https://dev-gram-server.vercel.app/api/profiles/follow/${profileId}`,
       {},
       {
         headers: {

@@ -38,7 +38,7 @@ let AddEducationScreen = () => {
   let submitAddEducation = async (e) => {
     e.preventDefault();
     await axios.put(
-      "http://localhost:8000/api/profiles/education/",
+      "https://dev-gram-server.vercel.app/api/profiles/education/",
       education,
       {
         headers: {

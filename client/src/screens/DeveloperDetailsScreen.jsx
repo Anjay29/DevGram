@@ -13,7 +13,7 @@ let DeveloperDetailsScreen = () => {
 
   const fetchDeveloper = async () => {
     const { data } = await axios.get(
-      `http://localhost:8000/api/profiles/${developerId}`,
+      `https://dev-gram-server.vercel.app/api/profiles/${developerId}`,
       {
         headers: {
           "Content-Type": "application/json",

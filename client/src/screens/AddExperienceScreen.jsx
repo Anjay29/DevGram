@@ -38,7 +38,7 @@ let AddExperienceScreen = () => {
   let submitAddExperience = async (e) => {
     e.preventDefault();
     await axios.put(
-      "http://localhost:8000/api/profiles/experience/",
+      "https://dev-gram-server.vercel.app/api/profiles/experience/",
       experience,
       {
         headers: {

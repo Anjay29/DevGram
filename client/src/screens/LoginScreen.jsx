@@ -20,6 +20,7 @@ let LoginScreen = () => {
     if (localStorage.getItem("devroom")) {
       navigate("/");
     }
+    // eslint-disable-next-line
   }, []);
 
   let validateEmail = (event) => {
@@ -42,7 +43,7 @@ let LoginScreen = () => {
       let email = user.email;
       let password = user.password;
       const { status, data } = await axios.post(
-        "http://localhost:8000/api/users/login",
+        "https://dev-gram-server.vercel.app/api/users/login",
         { email, password },
         {
           headers: {

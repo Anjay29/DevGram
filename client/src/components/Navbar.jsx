@@ -9,12 +9,15 @@ let Navbar = () => {
   const [user, setUser] = useState({});
 
   const getUser = async () => {
-    const { data } = await axios.get("http://localhost:8000/api/users/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    const { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/users/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
     setUser(data.user);
   };
   // console.log(user);

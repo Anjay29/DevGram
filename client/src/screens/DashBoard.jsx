@@ -23,7 +23,7 @@ let DashBoard = () => {
 
   const getProfile = async () => {
     let { status, data } = await axios.get(
-      "http://localhost:8000/api/profiles/me",
+      "https://dev-gram-server.vercel.app/api/profiles/me",
       {
         headers: {
           "Content-Type": "application/json",
@@ -36,12 +36,15 @@ let DashBoard = () => {
   };
 
   const getUser = async () => {
-    let { data } = await axios.get("http://localhost:8000/api/users/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    let { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/users/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
     setUser(data.user);
     console.log(data.user);
     setLoading(false);
@@ -56,7 +59,7 @@ let DashBoard = () => {
 
   let clickDeleteExperience = async (experienceId) => {
     const { data } = await axios.delete(
-      `http://localhost:8000/api/profiles/experience/${experienceId}`,
+      `https://dev-gram-server.vercel.app/api/profiles/experience/${experienceId}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -70,7 +73,7 @@ let DashBoard = () => {
 
   let clickDeleteEducation = async (educationId) => {
     const { data } = await axios.delete(
-      ` http://localhost:8000/api/profiles/education/${educationId}`,
+      ` https://dev-gram-server.vercel.app/api/profiles/education/${educationId}`,
       {
         headers: {
           "Content-Type": "application/json",

@@ -60,35 +60,44 @@ let FollowPostScreen = () => {
   }
 
   const getUser = async () => {
-    let { data } = await axios.get("http://localhost:8000/api/users/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    let { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/users/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
     setUser(data.user);
     // console.log(data.user);
   };
 
   const getPosts = async () => {
-    let { data } = await axios.get("http://localhost:8000/api/posts/", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    let { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/posts/",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
     setPosts(data.posts);
     console.log(data.posts);
     setLoading(false);
   };
 
   const getProfile = async () => {
-    let { data } = await axios.get("http://localhost:8000/api/profiles/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    let { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/profiles/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
     setFollowing(data.profile.following);
     // setProfile(data.profile);
   };
@@ -115,7 +124,7 @@ let FollowPostScreen = () => {
     e.preventDefault();
     if (localPost.text.trim() !== "") {
       const { data } = await axios.post(
-        "http://localhost:8000/api/posts/",
+        "https://dev-gram-server.vercel.app/api/posts/",
         localPost,
         {
           headers: {
@@ -137,7 +146,7 @@ let FollowPostScreen = () => {
 
   let clickDeletePost = async (postId) => {
     const { data } = await axios.delete(
-      `http://localhost:8000/api/posts/${postId}`,
+      `https://dev-gram-server.vercel.app/api/posts/${postId}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -155,7 +164,7 @@ let FollowPostScreen = () => {
 
   let clickLikePost = async (postId) => {
     const { data } = await axios.put(
-      `http://localhost:8000/api/posts/like/${postId}`,
+      `https://dev-gram-server.vercel.app/api/posts/like/${postId}`,
       {},
       {
         headers: {

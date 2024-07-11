@@ -72,12 +72,16 @@ let CreateProfileScreen = () => {
 
     console.log(`Payload size: ${payloadSize} bytes`);
 
-    await axios.post("http://localhost:8000/api/profiles/", profile, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    await axios.post(
+      "https://dev-gram-server.vercel.app/api/profiles/",
+      profile,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
 
     Swal.fire("Profile created successfully", "", "success");
     navigate("/profiles/dashboard");

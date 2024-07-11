@@ -66,7 +66,7 @@ let EditProfileScreen = () => {
 
   const getProfile = async (userPassed) => {
     let { status, data } = await axios.get(
-      "http://localhost:8000/api/profiles/me",
+      "https://dev-gram-server.vercel.app/api/profiles/me",
       {
         headers: {
           "Content-Type": "application/json",
@@ -104,12 +104,15 @@ let EditProfileScreen = () => {
   };
 
   const getUser = async () => {
-    let { data } = await axios.get("http://localhost:8000/api/users/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    let { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/users/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
     // console.log(data);
     getProfile(data.user);
   };
@@ -131,12 +134,16 @@ let EditProfileScreen = () => {
   let submitUpdateProfile = async (event) => {
     event.preventDefault();
 
-    await axios.put("http://localhost:8000/api/profiles/", localProfile, {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    await axios.put(
+      "https://dev-gram-server.vercel.app/api/profiles/",
+      localProfile,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
 
     Swal.fire("Profile updated successfully", "", "success");
     navigate("/profiles/dashboard");

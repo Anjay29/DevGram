@@ -49,19 +49,22 @@ let PostDetailsScreen = () => {
   }
 
   const getUser = async () => {
-    let { data } = await axios.get("http://localhost:8000/api/users/me", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("devroom")}`,
-      },
-    });
+    let { data } = await axios.get(
+      "https://dev-gram-server.vercel.app/api/users/me",
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("devroom")}`,
+        },
+      }
+    );
     setUser(data.user);
     console.log(data.user);
   };
 
   let getPost = async () => {
     let { data } = await axios.get(
-      `http://localhost:8000/api/posts/${postId}`,
+      `https://dev-gram-server.vercel.app/api/posts/${postId}`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -83,7 +86,7 @@ let PostDetailsScreen = () => {
   let submitCreateComment = async (e) => {
     e.preventDefault();
     await axios.post(
-      `http://localhost:8000/api/posts/comment/${postId}`,
+      `https://dev-gram-server.vercel.app/api/posts/comment/${postId}`,
       comment,
       {
         headers: {
@@ -102,7 +105,7 @@ let PostDetailsScreen = () => {
   let clickDeleteComment = async (commentId) => {
     // dispatch(postActions.deleteComment(postId, commentId));
     await axios.delete(
-      `http://localhost:8000/api/posts/comment/${postId}/${commentId}`,
+      `https://dev-gram-server.vercel.app/api/posts/comment/${postId}/${commentId}`,
       {
         headers: {
           "Content-Type": "application/json",

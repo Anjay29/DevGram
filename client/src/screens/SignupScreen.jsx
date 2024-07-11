@@ -54,7 +54,7 @@ let SignupScreen = () => {
       let password = user.password.trim();
 
       const { status } = await axios.post(
-        "http://localhost:8000/api/users/signup",
+        "https://dev-gram-server.vercel.app/api/users/signup",
         { name, email, password },
         {
           headers: {

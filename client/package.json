@@ -10,6 +10,7 @@
     "axios": "^1.4.0",
     "mdb-react-ui-kit": "^6.1.0",
     "mdb-ui-kit": "^6.3.1",
+    "postcss-pseudo-class-any-link": "^9.0.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-external-link": "^2.2.0",

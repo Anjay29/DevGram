@@ -53,7 +53,7 @@ let HomeScreen = () => {
         <div className="footer">
           <p className="text-center text-white">
             Developed with <span className="heart-color">&hearts;</span> by
-            Nishant
+            Anjay
           </p>
         </div>
       </div>

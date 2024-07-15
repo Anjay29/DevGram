@@ -51,7 +51,7 @@ let HomeScreen = () => {
       </div>
       <div className="cover-footer ">
         <div className="footer">
-          <p className="text-center text-white">
+          <p className="text-center text-black">
             Developed with <span className="heart-color">&hearts;</span> by
             Anjay
           </p>
